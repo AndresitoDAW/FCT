@@ -15,14 +15,18 @@ function suma (){
     if(restar){
         acumulado = acumulado - parseInt(cifra);
         document.getElementById("display").value=acumulado;
-    } else {
-        acumulado = acumulado + parseInt(cifra);
+    } else if (multiplicar){
+        acumulado = acumulado * parseInt(cifra);
         document.getElementById("display").value=acumulado;
-    }
+        } else {
+            acumulado = acumulado + parseInt(cifra);
+            document.getElementById("display").value=acumulado;
+        }
     
     cifra = "";
     restar = false;
     sumar = true;
+    multiplicar = false;
     primera_operacion = false;
 }
 
@@ -31,10 +35,13 @@ function resta (){
         if(sumar){
             acumulado = acumulado + parseInt(cifra);
             document.getElementById("display").value=acumulado;
+        } else if (multiplicar){
+            acumulado = acumulado * parseInt(cifra);
+            document.getElementById("display").value=acumulado;
         } else {
-        acumulado = acumulado - parseInt(cifra);
-        document.getElementById("display").value=acumulado;
-        }
+             acumulado = acumulado - parseInt(cifra);
+             document.getElementById("display").value=acumulado;
+            }
     } else {
         acumulado = parseInt(cifra);
         
@@ -42,16 +49,31 @@ function resta (){
     cifra = "";
     sumar = false;
     restar = true;
+    multiplicar = false;
     primera_operacion = false;
     
 }
 
 function multiplicacion (){
-
+    if(sumar){
+        acumulado = acumulado + parseInt(cifra);
+        document.getElementById("display").value=acumulado;
+    } else if (restar){
+        acumulado = acumulado - parseInt(cifra);
+        document.getElementById("display").value=acumulado;
+    } else {
+        acumulado = acumulado * parseInt(cifra);
+        document.getElementById("display").value=acumulado;
+    }
+    cifra = "";
+    sumar = false;
+    restar = false;
+    multiplicar = true;
+    primera_operacion = false;
 }
 
-function divisio (){
-    
+function division (){
+
 }
 
 function resultado (){
@@ -59,6 +81,8 @@ function resultado (){
         document.getElementById("display").value = acumulado + parseInt(cifra);
     } else if (restar){
         document.getElementById("display").value = acumulado - parseInt(cifra);
+    } else if (multiplicar){
+        document.getElementById("display").value = acumulado * parseInt(cifra);
     }
 
     acumulado = parseInt(document.getElementById("display").value);
