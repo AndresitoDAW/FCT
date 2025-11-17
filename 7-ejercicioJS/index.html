@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de notas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="header-index">
+        <h1>GESTOR DE TAREAS</h1>
+    </header>
+    <main>
+        <form id="form-nota">
+            <h2>Notas</h2>
+            <label for="input-nota"></label>
+            <input type="text" id="input-nota" placeholder="Escribe una nota...">
+            <input type="submit" id="boton-añadir" value="Añadir">
+        </form>
+
+        <p class="mensaje-error" id="mensaje-error"></p>
+        <ul id="lista-notas"></ul>
+    </main>
+    <footer>
+        <p>Aplicación creada por Andrés Gallego-Nicasio, 2025</p>
+    </footer>
+    <script src="main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+
+/* Cuerpo del documento */
+body {
+    font-family:'Times New Roman', Times, serif;
+    background-color: #191717;
+    margin: 0;
+    padding: 0;
+}
+/* Encabezado del documento */
+header {
+    background-color: #292525;
+    padding-top: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #daa215;
+    border-bottom: 2px solid #daa215;
+}
+/* Titulos del documento */
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    margin: 20px 10px;
+    color: #daa215;
+}
+ main {
+    padding: 15px;
+    margin: 20px;
+ }
+
+/*Estilos para formulario*/
+form {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+/*Botones*/
+#boton-añadir {
+    width: 150px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #daa215;
+    color: #191717;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+ #boton-añadir:hover{
+    background-color: #c49b12;
+ }
+
+ button.eliminar {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+button.eliminar:hover {
+  background: #c82333;
+}
+ /*Input del formulario*/
+ #input-nota{   
+    width: 300px;
+    height: 35px;
+ }
+
+.mensaje-error {
+    color: red;
+    margin-top: 10px;
+}
+
+#lista-notas {
+    color: #fff;
+    padding-left: 0;      
+    list-style: none;     
+}
+
+#lista-notas li {
+    display: grid;
+    grid-template-columns: 1fr auto; 
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+}
+
+/* Estilos del pie de pagina */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #292525;
+    color: #daa215;
+    border-top: 2px solid #daa215;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+@media (max-width: 600px) {
+  #input-nota {
+    width: 100%;
+  }
+  #boton-añadir {
+    width: 100%;
+  }
+}
