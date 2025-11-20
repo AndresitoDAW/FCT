@@ -1,0 +1,72 @@
+/*RESETEAR CUERPO*/
+body, html{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    height: 100%;
+    background-image: url('img.png');
+    background-size: cover;
+    background-position: center;
+}
+#header-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: bisque;
+    width: 100%;
+    height: 50px;
+}
+
+.contenedor {
+    display: flex;    
+    justify-content: space-between;
+    padding: 20px;
+    margin: 20px;
+    gap: 20px;
+}
+
+.seccion-principal, .lateral{
+    flex:1;
+    align-items: center;
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 6px;
+}
+.seccion-principal {
+    order: 2;
+}
+.lateral {
+    display: none;
+    order: 1;
+}
+
+.contenido-articulo {
+  display: flex;          
+  align-items: flex-start;
+  gap: 15px;              
+}
+
+.info-articulo {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+}
+
+.nombre, .precio {
+  margin: 0;
+}
+
+.botones-articulo {
+  background-color: #3d62bf; 
+  color: antiquewhite;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-family: inherit;
+  transition: background-color 0.3s ease;
+  cursor: pointer; 
+}
+.botones-articulo:hover{
+    background-color: #2852bc;
+}
+
