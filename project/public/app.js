@@ -1,0 +1,59 @@
+const taskList = document.getElementById('taskList');
+const taskForm = document.getElementById('taskForm');
+const taskInput = document.getElementById('taskInput');
+
+// Cargar tareas al iniciar
+loadTasks();
+
+async function loadTasks() {
+    const res = await fetch('/api/tasks');
+    const tasks = await res.json();
+    renderTasks(tasks);
+}
+
+function renderTasks(tasks) {
+    taskList.innerHTML = '';
+
+    tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.className = task.completed ? 'completed' : '';
+
+        li.innerHTML = `
+            <span>${task.title}</span>
+            <div>
+                <button onclick="toggleTask(${task.id})">✔</button>
+                <button onclick="deleteTask(${task.id})">🗑</button>
+            </div>
+        `;
+
+        taskList.appendChild(li);
+    });
+}
+
+// Crear tarea
+taskForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const title = taskInput.value;
+
+    await fetch('/api/tasks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title })
+    });
+
+    taskInput.value = '';
+    loadTasks();
+});
+
+// Cambiar estado
+async function toggleTask(id) {
+    await fetch(`/api/tasks/${id}`, { method: 'PATCH' });
+    loadTasks();
+}
+
+// Eliminar tarea
+async function deleteTask(id) {
+    await fetch(`/api/tasks/${id}`, { method: 'DELETE' });
+    loadTasks();
+}
