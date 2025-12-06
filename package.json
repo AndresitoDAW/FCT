@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/AndresitoDAW/AreaVR/issues"
   },
-  "homepage": "https://github.com/AndresitoDAW/AreaVR#readme"
+  "homepage": "https://github.com/AndresitoDAW/AreaVR#readme",
+  "dependencies": {
+    "express": "5.2.1"
+  }
 }

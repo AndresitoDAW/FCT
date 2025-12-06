@@ -7,6 +7,8 @@ app.get('/', (req, res) => {
     res.status(200).send('<h1>Mi página</h1>')
 })
 
+app.post()
+
 app.listen(PORT, () => {
     console.log(`Server listening on port http://localhost:${PORT}`)
 })
