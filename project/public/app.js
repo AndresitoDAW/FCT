@@ -16,13 +16,16 @@ function renderTasks(tasks) {
 
     tasks.forEach(task => {
         const li = document.createElement('li');
-        li.className = task.completed ? 'completed' : '';
+        li.className = `${task.completed ? 'completed ' : ''}fade-in`;
+
 
         li.innerHTML = `
             <span>${task.title}</span>
             <div>
-                <button onclick="toggleTask(${task.id})">✔</button>
-                <button onclick="deleteTask(${task.id})">🗑</button>
+                <button class="action-btn complete-btn" onclick="toggleTask(${task.id}, this)">✔</button>
+
+                <button class="action-btn delete-btn" onclick="deleteTask(${task.id}, this)">🗑</button>
+
             </div>
         `;
 
@@ -47,13 +50,24 @@ taskForm.addEventListener('submit', async (e) => {
 });
 
 // Cambiar estado
-async function toggleTask(id) {
-    await fetch(`/api/tasks/${id}`, { method: 'PATCH' });
-    loadTasks();
+async function toggleTask(id, btn) {
+    const li = btn.closest('li');
+    li.classList.add('fade-out');
+
+    setTimeout(async () => {
+        await fetch(`/api/tasks/${id}`, { method: 'PATCH' });
+        loadTasks();
+    }, 300);
 }
 
+
 // Eliminar tarea
-async function deleteTask(id) {
-    await fetch(`/api/tasks/${id}`, { method: 'DELETE' });
-    loadTasks();
+async function deleteTask(id, btn) {
+    const li = btn.closest('li');
+    li.classList.add('fade-out');
+
+    setTimeout(async () => {
+        await fetch(`/api/tasks/${id}`, { method: 'DELETE' });
+        loadTasks();
+    }, 300);
 }

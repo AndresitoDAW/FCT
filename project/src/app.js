@@ -4,8 +4,9 @@ const express = require('express');
 //Creamos servidor
 const app = express();
 
-const taskRoutes = require('../src/routes/tasks.routes');
+const taskRoutes = require('./routes/tasks.routes');
 
+const errorHandler = require('./middlewares/errorHandler');
 //Puerto
 const PORT = 1234;
 
@@ -22,7 +23,11 @@ app.use(express.static('public'));
 //Conectar con las rutas de tareas
 app.use('/api/tasks', taskRoutes);
 
+// Manejo global de errores
+app.use(errorHandler);
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 
 });
+
+

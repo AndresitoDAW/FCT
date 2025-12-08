@@ -1,27 +1,43 @@
 const Task = require('../models/tasks.model');
 
-// GET /api/tasks
-exports.getTasks = (req, res) => {
-    res.json(Task.getAll());
+exports.getTasks = async (req, res, next) => {
+    try {
+        const tasks = await Task.getAll();
+        res.json(tasks);
+    } catch (err) {
+        next(err);
+    }
 };
 
-// POST /api/tasks
-exports.createTask = (req, res) => {
-    const { title } = req.body;
-    const newTask = Task.create(title);
-    res.status(201).json(newTask);
+exports.createTask = async (req, res, next) => {
+    try {
+        const { title } = req.body;
+        const newTask = await Task.create(title);
+        res.status(201).json(newTask);
+    } catch (err) {
+        next(err);
+    }
 };
 
-// PATCH /api/tasks/:id
-exports.toggleTask = (req, res) => {
-    const id = parseInt(req.params.id);
-    const updatedTask = Task.toggle(id);
-    res.json(updatedTask);
+exports.toggleTask = async (req, res, next) => {
+    try {
+        const id = parseInt(req.params.id);
+        const updatedTask = await Task.toggle(id);
+        if (!updatedTask) {
+            return res.status(404).json({ message: 'Tarea no encontrada' });
+        }
+        res.json(updatedTask);
+    } catch (err) {
+        next(err);
+    }
 };
 
-// DELETE /api/tasks/:id
-exports.deleteTask = (req, res) => {
-    const id = parseInt(req.params.id);
-    Task.remove(id);
-    res.json({ message: "Tarea eliminada" });
+exports.deleteTask = async (req, res, next) => {
+    try {
+        const id = parseInt(req.params.id);
+        await Task.remove(id);
+        res.json({ message: 'Tarea eliminada' });
+    } catch (err) {
+        next(err);
+    }
 };

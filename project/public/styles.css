@@ -1,34 +1,124 @@
+/* ====== ESTILOS GENERALES ====== */
 body {
-    font-family: Arial, sans-serif;
-    max-width: 600px;
-    margin: 40px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
 }
 
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* ====== TITULO ====== */
 h1 {
     text-align: center;
+    margin-bottom: 20px;
+    color: #333;
 }
 
+/* ====== FORMULARIO ====== */
 #taskForm {
     display: flex;
     gap: 10px;
 }
 
+#taskInput {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+#taskInput:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+button {
+    padding: 12px 18px;
+    border: none;
+    background: #4a90e2;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #357ABD;
+}
+
+/* ====== LISTA DE TAREAS ====== */
 #taskList {
-    margin-top: 20px;
+    margin-top: 25px;
     list-style: none;
     padding: 0;
 }
 
 li {
-    padding: 10px;
-    background: #f2f2f2;
-    margin-bottom: 10px;
+    background: #f9f9f9;
+    padding: 14px;
+    margin-bottom: 12px;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: 0.2s;
 }
 
-.completed {
+li:hover {
+    background: #f0f0f0;
+}
+
+/* ====== ESTADO COMPLETADO ====== */
+.completed span {
     text-decoration: line-through;
-    color: gray;
+    color: #888;
+}
+
+/* ====== BOTONES DE ACCIÓN ====== */
+.action-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 10px;
+    transition: 0.2s;
+}
+
+.action-btn:hover {
+    transform: scale(1.2);
+}
+
+.complete-btn {
+    color: #4CAF50;
+}
+
+.delete-btn {
+    color: #E74C3C;
+}
+
+/* Animación al aparecer */
+.fade-in {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
