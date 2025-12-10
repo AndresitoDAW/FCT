@@ -1,0 +1,10 @@
+var numero1 = 2;
+var numero2 = 5;
+var numero3 = 10;
+var numero4 = 7;
+var resultadoSuma = numero1 + numero2;
+var resultadoResta = numero3 - numero4;
+var resultadoMultiplicacion = resultadoSuma * resultadoResta;
+console.log(resultadoSuma);
+console.log(resultadoResta);
+console.log(resultadoMultiplicacion);
