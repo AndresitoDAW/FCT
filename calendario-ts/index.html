@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario - TS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="calendar-container">
+        <header>
+            <button id="prev">&lt;</button>
+            <h1 id="month-year"></h1>
+            <button id="next">&gt;</button>
+        </header>
+
+        <div class="weekdays">
+            <div>Lun</div>
+            <div>Mar</div>
+            <div>Mie</div>
+            <div>Jue</div>
+            <div>Vie</div>
+            <div>Sab</div>
+            <div>Dom</div>
+        </div>
+
+        <div id="days" class="days"></div>
+    </div>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Añadir evento</h2>
+            <input id="event-title" placeholder="Título del evento">
+            <button id="save-event">Guardar</button>
+            <button id="close-modal">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
